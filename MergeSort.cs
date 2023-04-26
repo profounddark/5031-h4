@@ -5,13 +5,13 @@ class MergeSort
 
     public static void Combine(int[] sortArray, int first, int middle, int last)
     {
-        int[] tempArray = new int[last - first];
+        int[] tempArray = new int[last - first + 1];
 
         int firstCount = first;
         int lastCount = middle + 1;
         int tempCount = 0;
 
-        while ((firstCount <= middle) && (lastCount < last))
+        while ((firstCount <= middle) && (lastCount <= last))
         {
             if (sortArray[firstCount] < sortArray[lastCount])
             {
@@ -26,16 +26,20 @@ class MergeSort
             tempCount++;
         }
 
-        int finalCount = (firstCount <= middle) ? firstCount : lastCount;
-        for (; tempCount < tempArray.Length; tempCount++)
+        for (int i = firstCount; i <= middle; i++)
         {
-            tempArray[tempCount] = sortArray[finalCount];
-            finalCount++;
+            tempArray[tempCount] = sortArray[i];
+            tempCount++;
+        }
+        for (int j = lastCount; j <= last; j++)
+        {
+            tempArray[tempCount] = sortArray[j];
+            tempCount++;
         }
 
-        for (int i = 0; i < tempArray.Length; i++)
+        for (int k = 0; k < tempArray.Length; k++)
         {
-            sortArray[i + first] = tempArray[i];
+            sortArray[k + first] = tempArray[k];
         }
 
     }
@@ -71,7 +75,7 @@ class MergeSort
     {
         Console.WriteLine("Array unsorted");
         PrintArray(testArray);
-        Sort(testArray, 0, testArray.Length);
+        Sort(testArray, 0, testArray.Length - 1);
         Console.WriteLine("Array sorted:");
         PrintArray(testArray);
         Console.WriteLine("* * * * *\n");
