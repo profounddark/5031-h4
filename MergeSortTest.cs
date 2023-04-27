@@ -108,6 +108,11 @@ class MergeSortTest
         Console.WriteLine(" }");
     }
 
+    /// <summary>
+    /// TestArray runs a test of the MergeSort on the given array.
+    /// </summary>
+    /// <param name="testCase">the number of the test case, for printing</param>
+    /// <param name="testArray">the array to test the sort on</param>
     public static void TestArray(int testCase, int[] testArray)
     {
         Console.WriteLine("Test Case #" + testCase);
@@ -120,6 +125,11 @@ class MergeSortTest
 
     }
 
+    /// <summary>
+    /// Main method of the MergeSortTest. Runs a series of tests
+    /// of the MergeSort method.
+    /// </summary>
+    /// <param name="args">command line arguments, not used</param>
     public static void Main(string[] args)
     {
 
